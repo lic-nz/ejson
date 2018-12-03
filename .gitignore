@@ -1,0 +1,8 @@
+# Ignore all files and folders
+*
+*/
+
+# Except these files
+!Dockerfile
+!README.md
+!LICENSE
