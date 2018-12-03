@@ -3,6 +3,7 @@
 */
 
 # Except these files
+!.gitignore
 !Dockerfile
 !README.md
 !LICENSE
