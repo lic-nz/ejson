@@ -17,11 +17,11 @@ It lets you use Ruby Tools without the need to install ruby on your machine.
 
 Usage via file system:
 
-`docker run -v $(pwd):/work -ti docker-gems/ejson`
+`docker run -v $(pwd):/work -ti rubygem/ejson`
 
 Usage via Pipe:
 
-`echo "test" | docker run -ti docker-gems/ejson`
+`echo "test" | docker run -ti rubygem/ejson`
 
 It depends on your specific use case how your want to use it.
 
@@ -31,7 +31,7 @@ For extension, it could be used as base image.
 
 So instead of struggeling with the installation of a gem, just write
 
-`FROM docker-gems/ejson`
+`FROM rubygem/ejson`
 
 Then add the customization.
 
