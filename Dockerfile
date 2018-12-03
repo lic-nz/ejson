@@ -1,8 +1,9 @@
 FROM ruby:2.4
 
-MAINTAINER thinkbot@outlook.de
+MAINTAINER don@antiantonym.com # current
+# MAINTAINER thinkbot@outlook.de # original
 
-ENV VERSION=1.0.2
+ENV VERSION=1.2.1
 
 RUN gem install ejson --version ${VERSION} --no-format-exec
 
