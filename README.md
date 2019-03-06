@@ -22,13 +22,13 @@ or
 **Note**: On Windows, replace `${PWD}` below with the full path to the present working directory. For example, instead of
 
 ```
-docker run -v C:/Users/me/.ejson/keys:/keydir -v ${PWD}:/secretsdir -it --rm lic/ejson encrypt ../secretsdir/secrets.ejson
+docker run -v C:/Users/me/.ejson/keys:/keydir -v ${PWD}:/secretsdir -it --rm lic/ejson encrypt ../secretsdir/secrets.tfvars.ejson
 ```
 
 you would run
 
 ```
-docker run -v C:/Users/me/.ejson/keys:/keydir -v C:/my-project/infra/non-prod/dev/services/my-service:/secretsdir -it --rm lic/ejson encrypt ../secretsdir/secrets.ejson
+docker run -v C:/Users/me/.ejson/keys:/keydir -v C:/my-project/infra/non-prod/dev/services/my-service:/secretsdir -it --rm lic/ejson encrypt ../secretsdir/secrets.tfvars.ejson
 ```
 
 ## Create a key pair
@@ -55,7 +55,7 @@ Replace `<key>` with the value of your generated public key. For some important 
 ## Encrypt an ejson file
 
 ```
-docker run -v C:/Users/me/.ejson/keys:/keydir -v ${PWD}:/secretsdir -it --rm lic/ejson encrypt ../secretsdir/secrets.ejson
+docker run -v C:/Users/me/.ejson/keys:/keydir -v ${PWD}:/secretsdir -it --rm lic/ejson encrypt ../secretsdir/secrets.tfvars.ejson
 ```
 
 This will encrypt any plaintext fields and leave any encrypted fields unmodified. This command modifies the file in place.
@@ -63,7 +63,7 @@ This will encrypt any plaintext fields and leave any encrypted fields unmodified
 ## Decrypt an ejson file
 
 ```
-docker run -v C:/Users/me/.ejson/keys:/keydir -v ${PWD}:/secretsdir -it --rm lic/ejson decrypt ../secretsdir/secrets.ejson
+docker run -v C:/Users/me/.ejson/keys:/keydir -v ${PWD}:/secretsdir -it --rm lic/ejson decrypt ../secretsdir/secrets.tfvars.ejson
 ```
 
 This will decrypt the file and print the contents to stdout. In order for this command to succeed, you must have the key pair (created with `keygen -w` above) in your `~/.ejson/keys` directory. This command will _not_ modify the file in place.
