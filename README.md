@@ -16,17 +16,23 @@ Inside your `~/.ejson/keys` directory make a new file with the filename being th
 
 # Usage
 
-**Note**
+1) Make sure you are logged in to LIC's private Docker registry (Amazon ECR) for access to the `lic/ejson` images by running the following command ([see more details on this](https://docs.aws.amazon.com/AmazonECR/latest/userguide/Registries.html)):
+- Powershell: `Invoke-Expression $(aws ecr get-login --region ap-southeast-2 --no-include-email)`
+- Bash: `$(aws ecr get-login --region ap-southeast-2 --no-include-email)`
 
-Throughout these instructions an image name `lic/ejson` is used to keep things short, but this will not work by default. You can either:
+<br>
+
+2) Throughout these instructions an image name `lic/ejson` is used to keep things short, but this will not work by default. You can either:
 
 - Run `docker pull 459425154642.dkr.ecr.ap-southeast-2.amazonaws.com/lic/ejson` followed by `docker tag 459425154642.dkr.ecr.ap-southeast-2.amazonaws.com/lic/ejson lic/ejson` before continuing,
 
-or
+  or,
 
 - Replace occurences of `lic/ejson` with the full repository URI `459425154642.dkr.ecr.ap-southeast-2.amazonaws.com/lic/ejson`.
 
-**Note**: On Windows, replace `${PWD}` below with the full path to the present working directory. For example, instead of
+<br>
+
+3) On Windows, replace `${PWD}` below with the full path to the present working directory. For example, instead of
 
 ```
 docker run -v C:/Users/me/.ejson/keys:/keydir -v ${PWD}:/secretsdir -it --rm lic/ejson encrypt ../secretsdir/secrets.tfvars.ejson
