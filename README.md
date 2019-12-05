@@ -79,7 +79,7 @@ This will encrypt any plaintext fields and leave any encrypted fields unmodified
 docker run -v C:/Users/me/.ejson/keys:/keydir -v ${PWD}:/secretsdir -it --rm lic/ejson decrypt ../secretsdir/secrets.tfvars.ejson
 ```
 
-This will decrypt the file and print the contents to stdout. In order for this command to succeed, you must have the key pair (created with `keygen -w` above) in your `~/.ejson/keys` directory. This command will _not_ modify the file in place.
+This will decrypt the file and print the contents to stdout. In order for this command to succeed, you must have the key pair (created with `keygen -w` above) in your `~/.ejson/keys` directory. This command will _not_ modify the file in place. The decrypted secrets produced by the above command need to be put into a `secrets.json` file.  Note that the newer versions of Terraform expect a `secrets.json` file instead of a `secrets.tsvars` file. 
 
 **Warning**: Since the command prints to stdout it can be piped into a file. Be careful as the encoding may be wrong, and cause errors. Creating a file yourself and pasting the output inside will work.
 
